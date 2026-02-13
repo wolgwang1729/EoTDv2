@@ -309,6 +309,7 @@ DEPENDENCIES
   csv
   github-pages
   jekyll
+  jekyll-seo-tag
   jekyll-sitemap
   nokogiri (>= 1.18.9)
   rouge

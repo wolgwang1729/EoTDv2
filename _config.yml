@@ -1,5 +1,7 @@
 # Site-level
+title: EoTD
 description: wolgwang's Explorings of The Deep
+url: "https://eotd-wolgwang.vercel.app"
 livereload: true
 
 # front matter defaults
