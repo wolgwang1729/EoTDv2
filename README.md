@@ -1,25 +1,54 @@
-## Local development (Jekyll)
+# EoTD (Explorings of The Deep)
 
-This site uses Jekyll with Bundler and the gems defined in `Gemfile`.
+A Jekyll-powered technical blog by wolgwang.
+
+- Site title: **EoTD**
+- Description: **wolgwang's Explorings of The Deep**
+- Production URL: <https://eotd-wolgwang.vercel.app>
+
+## What this repository contains
+
+This repo contains the full source for the blog:
+
+- Long-form posts/pages in Markdown (for example `pumping-lemma.md`, `churchs-thesis.md`)
+- Jekyll layouts/includes in `_layouts/` and `_includes/`
+- Theme/style sources in `_sass/`, `_assets/style/`, and `_assets/js/`
+- Build output in `_site/` (generated)
+
+## Tech stack
+
+- **Jekyll** (static site generator)
+- **Kramdown + Rouge** (Markdown parsing + syntax highlighting)
+- **Bundler/RubyGems** for dependency management
+- Jekyll plugins configured in `_config.yml` and `Gemfile`
+
+## Project structure
+
+```text
+.
+├── _config.yml              # Site and plugin configuration
+├── _layouts/                # Page templates
+├── _includes/               # Reusable partials (header, footer, logo)
+├── _sass/                   # Sass sources and Bootstrap-based style layers
+├── _assets/                 # Fonts, images, JS, and CSS assets
+├── _site/                   # Generated static site output
+├── website/home.md          # Home page source
+└── *.md                     # Blog pages/posts in Markdown
+```
+
+## Local development
 
 ### 1) Prerequisites
 
-Install Ruby and build tools.
-
-On Ubuntu/Debian:
+Install Ruby and build tools (Ubuntu/Debian):
 
 ```bash
 sudo apt update
 sudo apt install -y ruby-full build-essential zlib1g-dev
-```
-
-Install Bundler (if not already installed):
-
-```bash
 gem install bundler
 ```
 
-### 2) Install project dependencies
+### 2) Install dependencies
 
 From the repository root:
 
@@ -27,43 +56,45 @@ From the repository root:
 bundle install
 ```
 
-### 3) Run the site locally
-
-Serve the site:
+### 3) Run the blog locally
 
 ```bash
 bundle exec jekyll serve
 ```
 
-Jekyll will build the site and host it locally at:
+Default local URLs:
 
 - <http://127.0.0.1:4000>
 - <http://localhost:4000>
 
-### 4) Optional useful flags
-
-Enable live reload while editing:
+Useful variants:
 
 ```bash
+# Enable live reload
 bundle exec jekyll serve --livereload
-```
 
-Use a custom port:
-
-```bash
+# Use a custom port
 bundle exec jekyll serve --port 8080
 ```
 
-### 5) Build without serving
+### 4) Build static output
 
 ```bash
 bundle exec jekyll build
 ```
 
-Generated output goes to `_site/`.
+Generated files are written to `_site/`.
 
-### Troubleshooting
+## Writing and editing content
 
-- If you see a `webrick` error, run `bundle install` again (the Gemfile already includes `webrick`).
-- If port `4000` is busy, start with another port (for example `--port 8080`).
-- If gems fail to install due to permissions, avoid `sudo bundle ...`; use a user-local Ruby setup or a version manager.
+- Add or edit Markdown files in the repository root or relevant content folders.
+- Use front matter at the top of each Markdown file to control layout/metadata.
+- Default page layout is configured in `_config.yml` (`layout: default` for pages).
+- Update shared UI elements through `_includes/` and page wrappers in `_layouts/`.
+
+## Notes
+
+- `README.md` is excluded from published site output via `_config.yml`.
+- `theme: null` is used, with `remote_theme` and local Sass/custom assets for styling.
+- `webrick` is included for local Ruby 3/Jekyll serving compatibility.
+- This site is inspired by the Stanford course websites for **CS231**, **CS103**, and **CS107**.
