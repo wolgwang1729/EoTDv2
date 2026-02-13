@@ -131,10 +131,10 @@ Examples:
 ## Images
 
 ```markdown
-![Short alt text](/_assets/img/cats.jpg)
+![Short alt text](/_assets/img/cats.jpg){: .zoom }
 ```
 
-![Short alt text](/_assets/img/cats.jpg)
+![Short alt text](/_assets/img/cats.jpg){: .zoom }
 
 ## Horizontal rule
 

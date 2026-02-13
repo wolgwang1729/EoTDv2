@@ -40,7 +40,7 @@ We can get intuitions behind this lemma by considering a parse tree of a suffici
 
 We can repeat this $R$ to pump the string and as a result pump $v$ and $x$ in the string $s$ to obtain $s'=uv^iwx^iy$ where $i \ge 0$ which also belongs to the same language $L$.
 
-![Illustration of the pumping lemma using a parse tree](/_assets/img/cfl.png)
+![Illustration of the pumping lemma using a parse tree](/_assets/img/cfl.png){: .zoom }
 
 ## Application
 
