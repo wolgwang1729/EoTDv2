@@ -1,0 +1,301 @@
+---
+# front matter required for Jekyll to process into css
+---
+
+// See https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+
+
+$font-family-sans-serif:    Lato, Arial, Helvetica, sans-serif;
+$font-family-monospace:     Inconsolata, Consolas, Menlo, monospace;
+$font-size-base:            .85rem;
+
+$dkgreen: #060;
+$mangopink: #CB4899;
+$raspberry: #B52741;
+$gray: #ccc;
+$cardinal: #941100;
+$nearwhite: #f5f5f5;
+
+
+// defaults are  2.5, 2, 1.75, 1.5, 1.25, 1
+$h1-font-size:            $font-size-base * 2.3;
+$h2-font-size:            $font-size-base * 1.6;
+$h3-font-size:            $font-size-base * 1.4;
+$h4-font-size:            $font-size-base * 1.2;
+$h5-font-size:            $font-size-base;
+$h6-font-size:            $font-size-base * 0.8;
+
+// A few custom styles are used globally across site
+// otherwise most styles kept local to page
+
+h1.title {
+    color: $mangopink;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+body {
+    padding-top: 0;
+}
+
+main.main {
+    flex: 1 0 auto;
+}
+
+.wrap:before,
+.wrap:after {
+    content: "";
+    display: table;
+}
+
+.wrap:after {
+    clear: both;
+}
+
+.wrap {
+    max-width: 800px;
+    padding: 0 30px;
+    margin: 0 auto;
+    zoom: 1;
+}
+
+/* Site header */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #202020;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.site-header-inner {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.site-title,
+.site-title:hover,
+.site-title:visited {
+    display: inline-block;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: #f5f5f5;
+    font-weight: 400;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-nav-link:link,
+.site-nav-link:visited {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
+    padding: 10px 16px;
+    color: #d4d4d4;
+    border: 1px solid #2a2a2a;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+}
+
+.site-nav-link:hover {
+    color: #f5f5f5;
+    text-decoration: none;
+    background: #171717;
+}
+
+/* Site footer */
+
+.site-footer {
+    margin-top: 40px;
+    border-top: 1px solid #202020;
+    background: #0a0a0a;
+    padding: 28px 0;
+}
+
+.site-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-copy {
+    color: #a3a3a3;
+    font-size: 13px;
+}
+
+.site-footer ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #2a2a2a;
+    border-radius: 9999px;
+    color: #d4d4d4;
+    background: #141414;
+    padding: 8px 12px;
+}
+
+.footer-links li a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    border-color: #3a3a3a;
+    background: #1b1b1b;
+}
+
+.site-footer li,
+.site-footer p {
+    letter-spacing: 0;
+}
+
+@media screen and (max-width: 750px) {
+    .site-header-inner {
+        min-height: 64px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .site-nav {
+        justify-content: space-between;
+    }
+
+    .site-nav-link {
+        flex: 1;
+    }
+
+    .site-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrap {
+        padding: 0 12px;
+    }
+}
+
+// CODE
+$code-color: $raspberry;
+$code-font-size: 100%;
+
+// inline code spans (not within pre)
+// github-like styling (raspberry text, offwhite bg)
+:not(pre) > code {
+  font-weight: 500;
+  background-color: $nearwhite;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {  // put pre in panel-like box
+    padding: 10px;
+    background-color: $nearwhite;
+    border: 1px solid $gray;
+    border-radius: 5px;
+}
+
+// Markdown tables: show borders like GitHub README rendering.
+#content table {
+    border-collapse: collapse;
+    margin: 1rem auto;
+    width: auto;
+    text-align: center;
+}
+
+#content th,
+#content td {
+    border: 1px solid $gray;
+    padding: 6px 10px;
+    vertical-align: top;
+    text-align: center;
+}
+
+/* adds an icon after external links, using custom font (glyphs from FontAwesome library, package by icomoon) */
+a[href^="http://"]:after, a[href^="https://"]:after {
+    content: var(--icon-link);
+    font-family: icomoon;
+    font-size: 60%;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 3px;
+}
+
+/* explicit safeguard for footer icon links */
+.site-footer a[href^="http://"]:after,
+.site-footer a[href^="https://"]:after,
+.footer-links li a:after {
+    content: none;
+    padding-left: 0;
+}
+
+/* zoomable images have special styling */
+img.zoom {
+    @extend .rounded, .border, .p-1, .d-block, .mx-auto;
+    cursor: zoom-in;
+
+}
+
+/* if width not otherwise set, use 50% as default */
+img.zoom:not([width]) {
+    width: 50%;
+}
+
+.smallcaps {
+    font-size: 80%;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// JDZ turn on for debugging
+NOTdiv {
+    border: 1px dotted gray;
+}
+
+
+@import "friendly.css"; // highlight theme for code
+@import "console";      // customizations for console
+@import "callout";      // customizations for blockquote as callout/alert
+
+@import "bootstrap/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Inconsolata:400,700,900");
+@import url('/_assets/fonts/icomoon_fonts.css');
+
+img {
+    @include img-fluid();
+}
