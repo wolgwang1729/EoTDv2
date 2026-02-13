@@ -39,5 +39,5 @@ liquid:
   strict_filters:     true
 lang:               en-US
 
-remote_theme: eecs485staff/primer-spec
+remote_theme: eecs485staff/primer-spec@36235863da4c1e6225a27fa3d398209a16d63d77
 plugins:        [jekyll-remote-theme,jekyll-optional-front-matter,jekyll-readme-index,jekyll-relative-links,jekyll-default-layout,jemoji,jekyll-sitemap]
