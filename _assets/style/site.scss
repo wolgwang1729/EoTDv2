@@ -628,3 +628,17 @@ hr {
 img {
     @include img-fluid();
 }
+
+/* Prevent horizontal overflow from long URLs or unbroken text (fixes mobile breakage
+     in reference lists and long links). */
+#content,
+.body-container {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+#content a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+}
