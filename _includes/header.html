@@ -1,17 +1,27 @@
 <header class="site-header">
   <div class="wrap">
     <div class="site-header-inner">
-      
-      <a href="{{ site.baseurl }}/" class="site-title" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+
+      <a href="{{ site.baseurl }}/" class="site-title">
         {% include logo.html %}
 
-        <span style="font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 300; color: #f5f5f5; letter-spacing: -0.5px;">
-          wolgwang's Explorings of The Deep
-        </span>
+        <span class="site-title-long">Explorings of The Deep</span>
+        <span class="site-title-short">EoTD</span>
       </a>
 
       <nav class="site-nav">
-        <a class="site-nav-link" href="{{ site.baseurl }}/" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 16px;">Home</a>
+        <a class="site-nav-link site-nav-link-desktop" href="{{ site.baseurl }}/">Home</a>
+
+        <details class="site-nav-menu">
+          <summary class="site-nav-hamburger" aria-label="Toggle navigation" role="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
+          <div class="site-nav-dropdown">
+            <a class="site-nav-link" href="{{ site.baseurl }}/">Home</a>
+          </div>
+        </details>
       </nav>
 
     </div>
