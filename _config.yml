@@ -23,7 +23,7 @@ kramdown:
   hard_wrap:            false
   smart_quotes:         ["apos", "apos", "quot", "quot"]
   syntax_highlighter:   rouge
-  syntax_highligher_opts:
+  syntax_highlighter_opts:
     default_lang: c
 
 # blacklist files/folders to never publish
