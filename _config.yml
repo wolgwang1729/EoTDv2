@@ -25,8 +25,8 @@ kramdown:
     default_lang: c
 
 # blacklist files/folders to never publish
-# if name is prefixed with dot/underscore will be excluded by default
-exclude:        [Gemfile, README.md]
+# Note: declaring `exclude` overrides Jekyll defaults, so keep `vendor` and cache dirs here.
+exclude:        [Gemfile, Gemfile.lock, README.md, vendor, vendor/bundle, .bundle, .jekyll-cache, .sass-cache, node_modules]
 # whitelist of files/folders to always publish (these would be excluded because of prefix)
 include:        [_assets]
 
