@@ -3,7 +3,7 @@ title: "Theory of Computation: Pumping Lemma"
 toc: true
 attribution: wolgwang
 permalink: /:basename/
-date: 2025-12-18
+date: 2025-02-12
 blog: true
 topic: Theory of Computation
 read_time: 12 min read
@@ -41,14 +41,7 @@ Then:
 - $\lvert xy \rvert \le p$ because repetition occurs within first $p+1$ states
 - Pumping $y$ keeps the computation valid, so $xy^n z \in L$ for all $n \ge 0$
 
-```mermaid
-stateDiagram-v2
-    [*] --> A
-    A --> B : read x
-    B --> B : read y
-    B --> C : read z
-    C --> [*]
-```
+![DFA diagram](/_assets/img/pumpinglemma.png)
 
 ## Proof
 
