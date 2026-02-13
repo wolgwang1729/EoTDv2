@@ -1,0 +1,85 @@
+<div class="logo-container" data-logo-auto="true" data-logo-variant="{{ include.variant | default: 'clean' }}" style="width: 32px; height: 32px; position: relative; display: flex; align-items: center; justify-content: center;">
+  <svg viewBox="0 0 100 100" style="overflow: visible; height: 100%; width: 100%;">
+    <defs>
+      <linearGradient data-logo-gradient x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#e5e5e5" />
+        <stop offset="100%" stop-color="#4f8ea3" />
+      </linearGradient>
+    </defs>
+
+    <path
+      data-logo-path
+      d=""
+      fill="none"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</div>
+
+<script>
+  (function() {
+    const quartic = function(x) {
+      return Math.pow(x, 4) - 2 * Math.pow(x, 2) + 1.2;
+    };
+
+    const weierstrass = function(x) {
+      let y = 0;
+      const a = 0.5;
+      const b = 3;
+      const iterations = 5;
+      for (let n = 0; n < iterations; n++) {
+        y += Math.pow(a, n) * Math.cos(Math.pow(b, n) * Math.PI * x);
+      }
+      return y * 0.5 + 1.2;
+    };
+
+    const logos = document.querySelectorAll('.logo-container[data-logo-auto="true"]');
+    for (let index = 0; index < logos.length; index++) {
+      const logo = logos[index];
+      if (logo.dataset.logoInitialized === 'true') {
+        continue;
+      }
+
+      const variant = logo.dataset.logoVariant === 'fractal' ? 'fractal' : 'clean';
+      const svg = logo.querySelector('svg');
+      const gradient = logo.querySelector('[data-logo-gradient]');
+      const pathEl = logo.querySelector('[data-logo-path]');
+      if (!svg || !gradient || !pathEl) {
+        continue;
+      }
+
+      const gradientId = 'logo-gradient-' + index;
+      gradient.setAttribute('id', gradientId);
+      pathEl.setAttribute('stroke', 'url(#' + gradientId + ')');
+
+      const func = variant === 'clean' ? quartic : weierstrass;
+      const xMin = -1.6;
+      const xMax = 1.6;
+      const steps = variant === 'clean' ? 50 : 200;
+      const points = [];
+
+      for (let i = 0; i <= steps; i++) {
+        const xRaw = xMin + (i / steps) * (xMax - xMin);
+        const yRaw = func(xRaw);
+        const svgX = ((xRaw - xMin) / (xMax - xMin)) * 90 + 5;
+        const svgY = 95 - (yRaw / 2.5) * 90;
+        points.push(svgX + ',' + svgY);
+      }
+
+      const pathData = 'M ' + points[0] + ' L ' + points.slice(1).join(' L ');
+      pathEl.setAttribute('d', pathData);
+
+      const length = pathEl.getTotalLength();
+      pathEl.style.strokeDasharray = length;
+      pathEl.style.strokeDashoffset = length;
+      pathEl.getBoundingClientRect();
+      pathEl.style.transition = 'stroke-dashoffset 1.5s ease-in-out, opacity 1.5s ease-in-out';
+      pathEl.style.strokeDashoffset = '0';
+      pathEl.style.opacity = '1';
+
+      logo.dataset.logoInitialized = 'true';
+    }
+  })();
+</script>

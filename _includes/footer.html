@@ -4,23 +4,7 @@
       
       <div class="footer-brand" style="flex-direction: row; align-items: center; gap: 15px;">
         <a href="{{ site.baseurl }}/" style="display: flex; align-items: center;" aria-label="Home">
-          <svg viewBox="0 0 100 100" width="32" height="32" style="overflow: visible;">
-            <defs>
-              <linearGradient id="footer-logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#f5f5f5" />
-                <stop offset="100%" stop-color="#8ab4f8" />
-              </linearGradient>
-            </defs>
-            <path 
-              id="fractal-path"
-              d=""
-              fill="none" 
-              stroke="url(#footer-logo-gradient)" 
-              stroke-width="8" 
-              stroke-linecap="round" 
-              stroke-linejoin="round"
-            />
-          </svg>
+          {% include logo.html variant="fractal" %}
         </a>
         <p class="footer-copy">
           &copy; {{ site.time | date: '%Y' }} wolgwang. Built with &hearts;.
@@ -72,42 +56,6 @@
       </ul>
     </div>
   </div>
-
-  <script>
-    (function() {
-      var weierstrass = function(x) {
-        var y = 0;
-        var a = 0.5;
-        var b = 3;
-        var iterations = 5;
-        for (var n = 0; n < iterations; n++) {
-          y += Math.pow(a, n) * Math.cos(Math.pow(b, n) * Math.PI * x);
-        }
-        return y * 0.5 + 1.2;
-      };
-
-      var points = [];
-      var xMin = -1.6;
-      var xMax = 1.6;
-      var steps = 200;
-
-      for (var i = 0; i <= steps; i++) {
-        var xRaw = xMin + (i / steps) * (xMax - xMin);
-        var yRaw = weierstrass(xRaw);
-        
-        var svgX = ((xRaw - xMin) / (xMax - xMin)) * 90 + 5;
-        var svgY = 95 - (yRaw / 2.5) * 90;
-        
-        points.push(svgX + "," + svgY);
-      }
-
-      var pathData = "M " + points[0] + " L " + points.slice(1).join(" L ");
-      var pathElement = document.getElementById('fractal-path');
-      if (pathElement) {
-        pathElement.setAttribute('d', pathData);
-      }
-    })();
-  </script>
 
   <style>
     .footer-links li a { transition: color 0.2s ease, border-color 0.2s ease; }
