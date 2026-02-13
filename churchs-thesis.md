@@ -3,7 +3,7 @@ title: "Theory of Computation: Church's Thesis"
 toc: true
 attribution: wolgwang
 permalink: /:basename/
-date: 2025-11-10
+date: 2025-04-10
 blog: true
 topic: Theory of Computation
 read_time: 8 min read

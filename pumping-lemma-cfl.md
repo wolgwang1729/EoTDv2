@@ -3,7 +3,7 @@ title: "Theory of Computation: Pumping Lemma for CFL"
 toc: true
 attribution: wolgwang
 permalink: /:basename/
-date: 2026-01-05
+date: 2025-04-03
 blog: true
 topic: Formal Languages
 read_time: 11 min read
@@ -40,21 +40,7 @@ We can get intuitions behind this lemma by considering a parse tree of a suffici
 
 We can repeat this $R$ to pump the string and as a result pump $v$ and $x$ in the string $s$ to obtain $s'=uv^iwx^iy$ where $i \ge 0$ which also belongs to the same language $L$.
 
-```mermaid
-graph TD
-      T((T)) --> u[u]
-      T --> R1((R))
-      T --> y[y]
-      R1 -.-> v1[v]
-      R1 -.-> R2((R))
-      R1 -.-> x1[x]
-      R2 -.-> v2[v]
-      R2 -.-> R3((R))
-      R2 -.-> x2[x]
-      R3 -.-> v3[v]
-      R3 -.-> w[w]
-      R3 -.-> x3[x]
-```
+![Illustration of the pumping lemma using a parse tree](/_assets/img/cfl.png)
 
 ## Application
 
