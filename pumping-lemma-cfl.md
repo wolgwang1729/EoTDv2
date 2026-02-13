@@ -29,10 +29,7 @@ Pumping Lemma for CFL describes an essential characteristic of context-free lang
         \implies  \exists p \geq 1, \forall s \in L, \mid s\mid  \geq p 
         $$
         $$
-        \implies  \exists u, v, w, x, y \in \Sigma^*,
-        $$
-        $$
-        (s = uvwxy) \land (\mid vx\mid  \geq 1) \land (\mid vwx\mid  \leq p) \land (\forall n \geq 0, uv^nwx^ny \in L)
+        \implies  \exists u, v, w, x, y \in \Sigma^*,(s = uvwxy) \land (\mid vx\mid  \geq 1) \land (\mid vwx\mid  \leq p) \land (\forall n \geq 0, uv^nwx^ny \in L)
         $$
 {: .callout-info}
 

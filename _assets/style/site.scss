@@ -405,6 +405,25 @@ blockquote {
     padding: 0.75rem 1rem;
 }
 
+blockquote[class*='callout-'] {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+blockquote[class*='callout-'] mjx-container[display='true'] {
+    display: inline-block;
+    min-width: 100%;
+    width: max-content;
+}
+
+blockquote[class*='callout-'] .mjx-chtml,
+blockquote[class*='callout-'] .MathJax_Display {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+
 /* adds an icon after external links, using custom font (glyphs from FontAwesome library, package by icomoon) */
 a[href^="http://"]:after, a[href^="https://"]:after {
     content: var(--icon-link);

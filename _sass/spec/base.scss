@@ -150,6 +150,15 @@ $INFO_BORDER_COLOR: rgba(4, 66, 137, 0.2);
   z-index: $Z_INDEX_TOPBAR;
 }
 
+mjx-container[display='true'],
+.mjx-chtml,
+.MathJax_Display {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
 /**
  * On mobile (when the topbar is displayed), create an invisible pseudo-element
  * and make it the height of the sticky navbar so the jump takes you to a
