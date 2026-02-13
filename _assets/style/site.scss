@@ -16,6 +16,29 @@ $gray: #ccc;
 $cardinal: #941100;
 $nearwhite: #f5f5f5;
 
+$surface-0: #0b0f14;
+$surface-1: #121821;
+$surface-2: #1a2330;
+$border-dark: #2b3646;
+$text-primary: #e5ecf5;
+$text-secondary: #b8c2d0;
+$link-color-dark: #7ab0ff;
+$link-hover-dark: #a8cbff;
+
+$body-bg: $surface-0;
+$body-color: $text-primary;
+$headings-color: $text-primary;
+$link-color: $link-color-dark;
+$link-hover-color: $link-hover-dark;
+$hr-border-color: $border-dark;
+$table-border-color: $border-dark;
+$input-bg: $surface-1;
+$input-color: $text-primary;
+$input-border-color: $border-dark;
+$custom-select-bg: $surface-1;
+$custom-select-color: $text-primary;
+$custom-select-border-color: $border-dark;
+
 
 // defaults are  2.5, 2, 1.75, 1.5, 1.25, 1
 $h1-font-size:            $font-size-base * 2.3;
@@ -29,7 +52,7 @@ $h6-font-size:            $font-size-base * 0.8;
 // otherwise most styles kept local to page
 
 h1.title {
-    color: $mangopink;
+    color: $link-color-dark;
 }
 
 h4 {
@@ -38,6 +61,16 @@ h4 {
 
 body {
     padding-top: 0;
+    background-color: $surface-0;
+    color: $text-primary;
+}
+
+a {
+    color: $link-color-dark;
+}
+
+a:hover {
+    color: $link-hover-dark;
 }
 
 main.main {
@@ -216,16 +249,25 @@ $code-font-size: 100%;
 // github-like styling (raspberry text, offwhite bg)
 :not(pre) > code {
   font-weight: 500;
-  background-color: $nearwhite;
+    background-color: $surface-2;
+    color: #ff9db0;
   padding: 2px 4px;
   border-radius: 4px;
 }
 
 pre {  // put pre in panel-like box
     padding: 10px;
-    background-color: $nearwhite;
-    border: 1px solid $gray;
+        background-color: $surface-1;
+        border: 1px solid $border-dark;
+    color: $text-primary;
     border-radius: 5px;
+}
+
+pre code,
+.highlight,
+.highlight pre,
+.highlight code {
+    color: $text-primary;
 }
 
 // Markdown tables: show borders like GitHub README rendering.
@@ -238,10 +280,25 @@ pre {  // put pre in panel-like box
 
 #content th,
 #content td {
-    border: 1px solid $gray;
+    border: 1px solid $border-dark;
     padding: 6px 10px;
     vertical-align: top;
     text-align: center;
+}
+
+#content th {
+    background: $surface-1;
+}
+
+#content tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+blockquote {
+    border-left: 4px solid $border-dark;
+    background: $surface-1;
+    color: $text-secondary;
+    padding: 0.75rem 1rem;
 }
 
 /* adds an icon after external links, using custom font (glyphs from FontAwesome library, package by icomoon) */
@@ -295,6 +352,80 @@ NOTdiv {
 @import "bootstrap/bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Inconsolata:400,700,900");
 @import url('/_assets/fonts/icomoon_fonts.css');
+
+html,
+body {
+    background-color: $surface-0;
+    color: $text-primary;
+}
+
+main.main,
+.body-container,
+#content {
+    background: transparent;
+}
+
+.alert {
+    color: $text-primary;
+    background-color: $surface-1;
+    border-color: $border-dark;
+}
+
+.alert-success {
+    background-color: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #9ef0cf;
+}
+
+.alert-warning {
+    background-color: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #ffd38b;
+}
+
+.alert-danger {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #ffb4b4;
+}
+
+.alert-info,
+.alert-primary {
+    background-color: rgba(96, 165, 250, 0.12);
+    border-color: rgba(96, 165, 250, 0.4);
+    color: #b8d8ff;
+}
+
+.form-control,
+.custom-select,
+input,
+select,
+textarea {
+    background-color: $surface-1;
+    color: $text-primary;
+    border-color: $border-dark;
+}
+
+.form-control:focus,
+.custom-select:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    background-color: $surface-1;
+    color: $text-primary;
+    border-color: $link-color-dark;
+    box-shadow: 0 0 0 0.2rem rgba(122, 176, 255, 0.2);
+}
+
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: $text-secondary;
+}
+
+hr {
+    border-top-color: $border-dark;
+}
 
 img {
     @include img-fluid();
